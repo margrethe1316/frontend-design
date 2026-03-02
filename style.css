@@ -20,6 +20,7 @@
   width: 113%;
   margin-top: -1rem;
   margin-left: -1rem;
+  margin-bottom: 0.5rem;
 }
 
 @layer reset, cards;
