@@ -4,8 +4,20 @@ body {
   grid-template-columns:
     [full-start] 1fr [content] minmax(0, 600px)
     1fr [full-end];
-}
 
-.breakout {
-  background: #a8fad5;
+  header,
+  footer,
+  main,
+  section {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: full;
+    > :not(&) {
+      grid-column: content;
+    }
+  }
+
+  .breakout {
+    background: #a8fad5;
+  }
 }
