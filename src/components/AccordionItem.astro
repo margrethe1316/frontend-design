@@ -24,9 +24,37 @@ const { id, question, answer, linkBlock } = props;
 </details>
 
 <style>
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
   details {
     color: hsl(190 30% 12%);
     border-bottom: 1px solid #dadada;
+
+    &[open] {
+      --r: z 90deg;
+    }
+
+    &::details-content {
+      opacity: 0;
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        content-visibility 1s allow-discrete,
+        opacity 1s,
+        block-size 1s;
+    }
+
+    &[open]::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
+
+    &[close]::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
 
     summary {
       font-weight: 700;
